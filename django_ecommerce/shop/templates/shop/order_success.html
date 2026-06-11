@@ -1,0 +1,12 @@
+{% extends "shop/base.html" %}
+
+{% block content %}
+<h1>Zamówienie złożone!</h1>
+
+<p>Dziękujemy, {{ order.full_name }}.</p>
+<p>Numer zamówienia: #{{ order.id }}</p>
+<p>Łączna kwota: {{ order.get_total_price }} zł</p>
+
+<a class="btn" href="{% url 'product_list' %}">Wróć do sklepu</a>
+
+{% endblock %}

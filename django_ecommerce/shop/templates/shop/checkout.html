@@ -1,0 +1,25 @@
+{% extends "shop/base.html" %}
+
+{% block content %}
+<h1>Dane do zamówienia</h1>
+
+<h3>Podsumowanie koszyka</h3>
+
+<ul>
+    {% for item in cart %}
+        <li>
+            {{ item.product.name }} x {{ item.quantity }}
+            — {{ item.total_price }} zł
+        </li>
+    {% endfor %}
+</ul>
+
+<p><strong>Razem: {{ cart.get_total_price }} zł</strong></p>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Potwierdź zamówienie</button>
+</form>
+
+{% endblock %}

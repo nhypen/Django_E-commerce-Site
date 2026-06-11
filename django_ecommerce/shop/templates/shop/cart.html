@@ -1,0 +1,37 @@
+{% extends "shop/base.html" %}
+
+{% block content %}
+<h1>Koszyk</h1>
+
+{% if cart|length > 0 %}
+<table>
+    <tr>
+        <th>Produkt</th>
+        <th>Ilość</th>
+        <th>Cena</th>
+        <th>Suma</th>
+        <th>Akcja</th>
+    </tr>
+
+    {% for item in cart %}
+    <tr>
+        <td>{{ item.product.name }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.price }} zł</td>
+        <td>{{ item.total_price }} zł</td>
+        <td>
+            <a href="{% url 'cart_remove' item.product.id %}">Usuń</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h3>Razem: {{ cart.get_total_price }} zł</h3>
+
+<a class="btn" href="{% url 'checkout' %}">Złóż zamówienie</a>
+
+{% else %}
+<p>Koszyk jest pusty.</p>
+{% endif %}
+
+{% endblock %}
