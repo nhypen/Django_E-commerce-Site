@@ -152,19 +152,6 @@ This project demonstrates:
 
 ---
 
-## Future Improvements
-
-* Product images
-* User authentication
-* Product categories
-* Product search
-* Stripe payments
-* Order history
-* Wishlist
-* Responsive design improvements
-
----
-
 ## Author
 nhypen
 
